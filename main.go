@@ -2,16 +2,18 @@ package main
 
 import (
 	"fmt"
+	"organLib/files"
 	"organLib/generators"
 	"organLib/paths"
 )
 
 func main() {
-	r := paths.NewWithPath("C:/Users/diogo/fm_factor_front/")
-	path, err := generators.SearchFile(r, "LICENSE")
+	r := paths.New()
+	generators.SearchFileInOutputTree(r, "LICENSE")
+	file, err := files.SearchFile(r, "LICENSE")
 	if err != nil {
-		panic(err)
+		fmt.Println(err.Error())
 	}
-	path.CreateLogFile("License_Paths.txt")
+	file.CreateLogFile("testLocal.txt")
 	fmt.Printf("Thanks for using organLib")
 }

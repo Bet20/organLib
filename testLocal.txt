@@ -1,0 +1,3 @@
+Paths in Root for LICENSE
+
+Size :> 1082 | Path :> C:\Users\diogo\organ\organLib\LICENSE
