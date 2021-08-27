@@ -22,14 +22,14 @@ fmt.Printf("root size : %d", r.Size)
 
 ```
 
-This utility is divided in X main fields, a decision made to simplify it's usage.
+This basic lib with utility functionalities is divided in *4* main fields, a decision made to simplify it's usage.
 
 They are
 
 - paths
 - files
 - generators
-- ...
+- organizers
 
 **paths** possesses as it's main type, root, which provides the name, size and list of files in the given root. You have the following functions to fiddle with this type.
 
@@ -44,3 +44,9 @@ func NewWithPath(path string) *RootDir
 ````
 
 NewWithPath(), enables you to create a root in the specified path.
+
+
+
+### ***Disclaimer,***
+
+###### This project starts as a challenge in order to improve my knowledge in the beautiful language of go. It's by no means a serious or dense in usability library, it's more of an experiment and exploration piece.
