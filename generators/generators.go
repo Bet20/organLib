@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/fs"
 	"organLib/paths"
+	"os"
 	"path/filepath"
 	"strings"
 )
@@ -85,4 +86,20 @@ func SearchFileInOutputTree(root *paths.RootDir, fileName string) error {
 	})
 
 	return err
+}
+
+func CreateDirectoryWithTemplate(root paths.RootDir, template string) {
+	var linesWOSep []string
+	lines := strings.Split(template, "\n")
+	for i, l := range lines {
+		linesWOSep = append(linesWOSep, strings.TrimSpace(l))
+		fmt.Println(linesWOSep[i])
+	}
+	for _, line := range linesWOSep {
+		if !strings.Contains(line, ".") {
+			os.Mkdir(root.Root+line, 0755)
+		} else {
+			os.Create(root.Root + line)
+		}
+	}
 }

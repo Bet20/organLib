@@ -60,9 +60,19 @@ func (file *File) CreateLogFile(name string) error {
 }
 
 func DeleteFileInRoot(fileToDelete *File, root *paths.RootDir) error {
-	err := os.Remove(fileToDelete.Name)
+	err := os.Remove(fileToDelete.Paths[0])
 	if err != nil {
 		return err
+	}
+	return nil
+}
+
+func DeleteBatchInRoot(filesToDelete []*File, root *paths.RootDir) error {
+	for _, file := range filesToDelete {
+		err := os.Remove(file.Paths[0])
+		if err != nil {
+			return err
+		}
 	}
 	return nil
 }
