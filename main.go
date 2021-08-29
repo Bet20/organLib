@@ -17,12 +17,17 @@ func main() {
 	file.CreateLogFile("testLocal.txt")
 	//files.DeleteFileInRoot(&file, r)
 	generators.CreateDirectoryWithTemplate(*r, `
-	/pasta1
-	/pasta1/pasta11.txt
-	/pasta1/pasta12.txt
-	/pasta1/pasta13.txt
-	/pasta2
-	/pasta2/pasta2.txt
+	d:pasta1
+	d:*pasta11
+	f:**pasta12.txt
+	d:**pp
+	d:**ii
+	d:***ty
+	f:****u.txt
+	f:****y.txt
+	d:pasta13.txt
+	d:pasta2
+	f:*pasta2.txt
 	`)
 	fmt.Printf("Thanks for using organLib")
 }
